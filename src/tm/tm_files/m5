@@ -1,0 +1,40 @@
+## Turing machine input file
+
+description = "Three Tape TM that decides: { w : w = 0^n1^n0^n , n >= 0}"
+
+# input alphabet
+alphabet 		= [('0'), ('1')]
+
+# tape stuff
+blank_symbol	= Symbol('B')
+num_tapes		= 3
+tape_alphabets	= 
+[
+[('B'), ('0'), ('1')],
+[('B'), ('0'), ('1')],
+[('B'), ('0'), ('1')]
+]
+
+# start state is always q0
+accept_state = "q1"
+reject_state = "q2"
+
+## delta functions
+
+# note accept state can be its numeric version
+# or any string that starts with q and contains 'accept'
+# transitions to reject states are unnecessary
+
+q0 0 B B	q3 0 0 B R R R
+q0 B B B	q_accept B B B R R R
+
+q3 0 B B	q3 0 0 B R R R
+q3 1 B B	q4 1 B 1 R L R
+
+q4 1 0 B	q4 1 0 1 R L R
+q4 0 0 B	q5 0 0 B R R L
+
+q5 0 0 1	q5 0 0 1 R R L
+q5 B B 1	q_accept B B 1 R R L 
+
+

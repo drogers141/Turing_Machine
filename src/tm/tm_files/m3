@@ -1,0 +1,57 @@
+## Turing machine input file
+# pound is a comment if first in line
+# and comments can be anywhere (whole line)
+
+# blank lines are ignored
+
+## the first section of the input can initialize
+# everything but the delta functions, in any order
+# once the delta functions are started, the file
+# must have only delta functions, blank lines, or comments
+
+# in the initialization, any attribute of the TM class
+# is initialized by name as an exec statement in python 
+# except for tape_alphabets which uses that name
+# if in doubt, just use this file as a template, modifying
+# rhs values as necessary
+
+# description is a string, optional 
+description = "{ w : w ends with a 1 }"
+
+# alphabet is the input alphabet
+alphabet 		= [('0'), ('1')]
+
+# blank_symbol is the symbol for the blank character
+# on all tapes
+blank_symbol	= Symbol('B')
+
+# how many tapes in machine
+num_tapes		= 1
+
+# specify an alphabet for each tape, with the input tape being
+# first, or the only one, if single tape machine
+#### explain more about symbol initialization, both here and with input alphabet
+tape_alphabets	= 
+[
+[('B'), ('0'), ('1')]
+]
+
+# designated states
+# start state is always q0
+# once the machine knows the accept and reject states
+# you can refer to them either by q+number or q+'_reject', q+'_accept', etc
+accept_state = "q1"
+reject_state = "q2"
+
+## delta functions
+
+# note that reject states are unnecessary, they will be generated
+
+q0 0    q0 0 r
+q0 1    q0 1 r
+q0 B    q3 B l
+
+q3 0    qreject 0 r
+q3 1    qaccept 1 r
+q3 B    qreject B l
+

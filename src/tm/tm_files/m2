@@ -1,0 +1,7 @@
+## Turing machine input file
+
+description = "{ w | w does not start with a 0 }"
+
+q0 0    q_reject 0 r
+q0 1    q_accept 1 r
+q0 B    qaccept B r

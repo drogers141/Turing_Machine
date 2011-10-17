@@ -1,0 +1,5 @@
+description = "{w | w starts w 0 }"
+
+q0 0    qaccept 0 r
+q0 1    qreject 1 r
+q0 B    qaccept B r

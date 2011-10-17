@@ -1,0 +1,19 @@
+Dave Rogers
+www.drogers.us
+
+Turing Machine
+
+A Turing Machine implementation in python with a program that generates an interactive state machine from a given Turing Machine using python's Tkinter library.
+See 
+www.drogers.us/demos/turing_machine/ 
+for information and a demonstration of the usage of the Turing Machine programs.
+
+For running commandline or Tkinter gui applications, cd into src/tm/ and run 
+python turing_machine.py -h
+or
+python tm_state_machine.py -h
+
+for help.  Note that this source is a Pydev Eclipse project, and can be imported into Eclipse if you have Pydev.
+
+Email me with any questions/comments if you like: dave@drogers.us
+

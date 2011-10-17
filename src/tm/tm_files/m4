@@ -1,0 +1,73 @@
+## Turing machine input file
+
+## the first section of the input can initialize
+# everything but the delta functions, in any order
+# once the delta functions are started, the file
+# must have only delta functions, blank lines, or comments
+
+# in the initialization, any attribute of the TM class
+# is initialized by name as an exec statement in python 
+# except for tape_alphabets which uses that name
+# if in doubt, just use this file as a template, modifying
+# rhs values as necessary
+
+# description is a string, optional 
+# simple ascii, use ^ to indicate repetition superscript
+description = "One Tape TM that decides: { w : w = 0^n1^n }"
+
+# alphabet is the input alphabet
+# note that each symbol is a tuple that will be the argument
+# for a Symbol constructor, see the Symbol class
+alphabet 		= [('0'), ('1')]
+
+# blank_symbol is the symbol for the blank character
+# on all tapes
+blank_symbol	= Symbol('B')
+
+# how many tapes in machine
+num_tapes		= 1
+
+# specify an alphabet for each tape, with the input tape being
+# first, or the only one, if single tape machine
+# to make use of alphabets with supers or subs, as I have denoted them
+# symbols can be constructed as (base, super, sub), ie ('0', '.') is a 0 with a . above it
+
+
+tape_alphabets	= 
+[
+[('B'), ('0'), ('1'), ('0', '.'), ('1', '.')]
+]
+
+# designated states
+# start state is always q0
+# once the machine knows the accept and reject states
+# you can refer to them either by q+number or q+'_reject', q+'_accept', etc
+accept_state = "q1"
+reject_state = "q2"
+
+## delta functions
+
+# note that reject states are unnecessary, they will be generated
+# remember that as strings, supers come before the base of a symbol
+# so .0 is:
+# .
+# 0
+
+q0 0    q3 	.0 r
+q0 B    q_accept B r
+
+q3 0    q3  0  	r
+q3 1    q3  1  	r
+q3 B 	q4	B	l
+q3 .1	q4	.1	l
+
+q4 1	q5	.1	l
+
+q5 0	q5	0	l
+q5 1	q5	1	l
+q5 .0	q6	.0	r
+
+q6 0	q3	.0	r
+q6 .1	qaccept	.1	r
+
+
