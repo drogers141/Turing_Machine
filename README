@@ -3,7 +3,7 @@ www.drogers.us
 
 Turing Machine
 
-A Turing Machine implementation in python with a program that generates an interactive state machine from a given Turing Machine using python's Tkinter library.
+A Turing Machine implementation in python (2.6+) with a program that generates an interactive state machine from a given Turing Machine using python's Tkinter library.
 See 
 www.drogers.us/demos/turing_machine/ 
 for information and a demonstration of the usage of the Turing Machine programs.
